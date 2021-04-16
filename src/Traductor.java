@@ -1,19 +1,15 @@
 /***
  * @author Gabriel Alejandro Vicente Lorenzo 20498
  */
-import java.util.HashMap;
-import java.util.Scanner;
 import java.io.*;
-import java.util.Vector;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Collection;
-import java.util.Set;
+
 public class Traductor {
     /***
      * Instancias necesarias para que la Calculadora_mega funcione. Van desde objetos de otras clases a estructuras.
      */
-    ArrayList<Data> almacen = new ArrayList<Data>();
+    ArrayList<String> almacen = new ArrayList<String>();
+    ArrayList<Data> almacen_data = new ArrayList<Data>();
     /***
      * Calculo para analizar la oracion a traducir
      * @param expresion traduccion a realizar
@@ -66,12 +62,40 @@ public class Traductor {
                 if(temp == null){
                     break;
                 }
-
+                almacen.add(temp);
 
             }
         }catch(Exception e){
             System.out.println("archivo no encontrado");
         }
+
+
+        /***
+         * Impresion de lo que hay en el almacen de diccionario
+         */
+        System.out.println();
+        System.out.println(" lo que hay en almacen");
+        System.out.println();
+        for (int i = 0; i<almacen.size();i++) {
+            System.out.println(almacen.get(i));
+        }
+
+        for (int i = 0; i<almacen.size();i++){
+            String[] temporal = almacen.get(i).split(",");
+            Data dato =  new Data();
+            dato.MegaSetter(temporal[0],temporal[1],temporal[2]);
+            almacen_data.add(dato);
+        }
+        /***
+         * Impresion de lo que hay en el almacen de Data
+         */
+        System.out.println();
+        System.out.println(" lo que hay en almacen data");
+        System.out.println();
+        for (int i = 0; i<almacen_data.size();i++) {
+            System.out.println(almacen_data.get(i));
+        }
+
 
         return traduccion;
     }

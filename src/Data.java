@@ -17,17 +17,25 @@ public class Data {
     public String MegaGetter(int opcion){
         String retorno = "";
         switch (opcion) {
-            case 1:
+            case 0:
                 retorno = ingles;
                 break;
-            case 2:
+            case 1:
                 retorno = espanol;
                 break;
-            case 3:
+            case 2:
                 retorno = frances;
                 break;
         }
         return retorno;
     }
 
+    @Override
+    public String toString() {
+        return "Data{" +
+                "ingles='" + ingles + '\'' +
+                ", espanol='" + espanol + '\'' +
+                ", frances='" + frances + '\'' +
+                '}';
+    }
 }
