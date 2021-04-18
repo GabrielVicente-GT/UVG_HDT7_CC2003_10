@@ -5,11 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Traductor {
-    /***
-     * Instancias necesarias para que la Calculadora_mega funcione. Van desde objetos de otras clases a estructuras.
-     */
-    ArrayList<String> almacen = new ArrayList<String>();
-    ArrayList<Data> almacen_data = new ArrayList<Data>();
+
     /***
      * Calculo para analizar la oracion a traducir
      * @param expresion traduccion a realizar
@@ -18,14 +14,23 @@ public class Traductor {
      * @return traduccion final
      */
     public String Calculo(String expresion,int Alfa,int Omega){
+        /***
+         * Instancias necesarias para que la Calculadora_mega funcione. Van desde objetos de otras clases a estructuras.
+         */
+        ArrayList<String> almacen = new ArrayList<String>();
+        ArrayList<Data> almacen_data = new ArrayList<Data>();
 
+        /***
+         * Instancias de los arboles que contienen las traducciones
+         */
+        BinaryTree Arbol =  new BinaryTree();
 
 
         /***
          * Separa la expresion a traducir
          */
 
-        String traduccion = "hola";
+        String traduccion = "";
 
         String[] expresion_separada = expresion.toLowerCase().split(" ");
 
@@ -42,10 +47,11 @@ public class Traductor {
             }
         }
 
+        /***
         for (int i =0;i<Cadena.size();i++){
             System.out.println(Cadena.get(i));
         }
-        System.out.println();
+        */
 
         /***
          * Se lee el archivo de diccionario y se hace el analisis de su data
@@ -73,12 +79,14 @@ public class Traductor {
         /***
          * Impresion de lo que hay en el almacen de diccionario
          */
+
+        /***
         System.out.println();
         System.out.println(" lo que hay en almacen");
         System.out.println();
         for (int i = 0; i<almacen.size();i++) {
             System.out.println(almacen.get(i));
-        }
+        }*/
 
         for (int i = 0; i<almacen.size();i++){
             String[] temporal = almacen.get(i).split(",");
@@ -89,12 +97,39 @@ public class Traductor {
         /***
          * Impresion de lo que hay en el almacen de Data
          */
+        /***
         System.out.println();
         System.out.println(" lo que hay en almacen data");
         System.out.println();
         for (int i = 0; i<almacen_data.size();i++) {
             System.out.println(almacen_data.get(i));
+        }*/
+
+
+        /***
+         * prueba de traduccion de palabra a letra
+         */
+/***
+        Tools herramienta =  new Tools();
+        int prueba_t=herramienta.StringToNum("homewo");
+        System.out.println(prueba_t);*/
+
+        for (int i = 0;i<almacen_data.size();i++){
+            Tools tuerca =  new Tools();
+            int prueba =tuerca.StringToNum(almacen_data.get(i).MegaGetter(Alfa-1));
+            Arbol.agregarNodo(prueba,almacen_data.get(i));
         }
+        for (int a =0;a<Cadena.size();a++){
+            Tools tuerca =  new Tools();
+            int prueba =tuerca.StringToNum(Cadena.get(a));
+            try{
+                traduccion = traduccion +" "+Arbol.encontrar(prueba).traducciones.MegaGetter(Omega-1);
+            }catch(Exception e){
+                traduccion = traduccion +" "+"*"+Cadena.get(a)+"*";
+            }
+        }
+
+
 
 
         return traduccion;

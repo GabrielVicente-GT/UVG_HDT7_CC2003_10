@@ -1,4 +1,6 @@
-
+/***
+ * @author Gabriel Alejandro Vicente Lorenzo 20498
+ */
 public class Data {
     /***
      * Constructor

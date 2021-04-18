@@ -1,3 +1,6 @@
+/***
+ * @author Gabriel Alejandro Vicente Lorenzo 20498
+ */
 public class Node {
     int palabra;
     Data traducciones;

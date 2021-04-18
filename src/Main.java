@@ -60,6 +60,7 @@ public class Main {
             System.out.println(varios.get(a));
         }
         System.out.println("");
+
         /***
          * El usuario seleccionara el idioma origen y destino para cada oracion
          */
@@ -69,6 +70,7 @@ public class Main {
         while(a<varios.size()){
             numero++;
             System.out.println(" TRADUCCION "+numero+" : \n");
+            System.out.println(varios.get(a)+"\n");
 
             /***
              * se elige el idioma de origen
@@ -93,9 +95,11 @@ public class Main {
 
                 System.out.println(" Esta es la traduccion --->"+esperanza.Calculo(varios.get(a),Alfa,Omega) +" ");
                 System.out.println();
+
             }catch(Exception e){
                 System.out.println(" Error");
                 System.out.println();
+
             }
             a++;
 
