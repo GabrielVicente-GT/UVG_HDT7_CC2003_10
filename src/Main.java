@@ -94,8 +94,8 @@ public class Main {
              */
 
             try{
-                System.out.println(" ESTA ES LA ORIGINAL   ---> "+varios.get(a) +" ");
                 System.out.println(" ESTA ES LA TRADUCCION ---> "+esperanza.Calculo(varios.get(a),Alfa,Omega) +" ");
+                System.out.println(" ESTA ES LA ORIGINAL   ---> "+varios.get(a) +" ");
                 System.out.println();
 
             }catch(Exception e){

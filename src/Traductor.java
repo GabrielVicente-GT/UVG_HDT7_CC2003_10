@@ -35,7 +35,7 @@ public class Traductor {
 
         String traduccion = "";
 
-        String[] expresion_separada = expresion.toLowerCase().split(" ");
+        String[] expresion_separada = expresion.replace(".","").toLowerCase().split(" ");
 
         ArrayList<String> Cadena = new ArrayList<String>();
 
@@ -102,6 +102,9 @@ public class Traductor {
                 traduccion = traduccion +"*"+Cadena.get(a)+"*"+" ";
             }
         }
+        System.out.println("\nRecorrido inorder del arbol con ls relaciones\n");
+        Arbol.recorridoINO(Arbol.root);
+        System.out.println();
 
         return traduccion;
     }
