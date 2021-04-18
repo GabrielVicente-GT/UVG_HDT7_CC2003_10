@@ -2,6 +2,7 @@
  * @author Gabriel Alejandro Vicente Lorenzo 20498
  */
 public class Node {
+    Association<Integer,String> asc = new Association<Integer,String>(1);
     int palabra;
     Data traducciones;
 

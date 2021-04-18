@@ -1,7 +1,10 @@
+import com.sun.nio.sctp.Association;
+
 /***
  * @author Gabriel Alejandro Vicente Lorenzo 20498
  */
 public class BinaryTree {
+
     Node root;
     public void agregarNodo(int palabra, Data traducciones) {
 
