@@ -6,3 +6,4 @@ town,pueblo,ville
 yes,si,Oui
 pretty,bonita,jolie
 young,joven,jeune
+APPLE,MANZANA,POMME

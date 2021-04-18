@@ -6,7 +6,6 @@
 ***************************************************************/
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 class vista{
 	Scanner scan;
@@ -15,12 +14,13 @@ class vista{
 		scan = new Scanner(System.in);
 	}
 
-
-	public void press_enter(){
-		System.out.println("\nPress enter to continue...");
-		scan.nextLine();	
-	}
-
+    /***
+     * presionar para continuar
+     */
+    public void press_enter(){
+        System.out.println("Presione para continuar...");
+        scan.nextLine();
+    }
 	/***
 	 * menu para elegir idioma
 	 * @param idioma descripcion del idioma

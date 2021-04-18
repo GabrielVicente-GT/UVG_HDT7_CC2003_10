@@ -4,6 +4,9 @@
 import java.io.*;
 import java.util.ArrayList;
 
+/***
+ * Clase que tiene el metodo de traduce la oracion
+ */
 public class Traductor {
 
     /***
@@ -48,13 +51,7 @@ public class Traductor {
         }
 
         /***
-        for (int i =0;i<Cadena.size();i++){
-            System.out.println(Cadena.get(i));
-        }
-        */
-
-        /***
-         * Se lee el archivo de diccionario y se hace el analisis de su data
+         * Se lee el archivo que contiene las traducciones en formato... ingles,espanol,frances (todo junto y sin espacios)
          */
 
         try{
@@ -74,63 +71,37 @@ public class Traductor {
         }catch(Exception e){
             System.out.println("archivo no encontrado");
         }
-
-
         /***
-         * Impresion de lo que hay en el almacen de diccionario
+         * De lo encontrado en el diccionario se le hace un split y se agrega al arbol.
          */
-
-        /***
-        System.out.println();
-        System.out.println(" lo que hay en almacen");
-        System.out.println();
-        for (int i = 0; i<almacen.size();i++) {
-            System.out.println(almacen.get(i));
-        }*/
 
         for (int i = 0; i<almacen.size();i++){
             String[] temporal = almacen.get(i).split(",");
             Data dato =  new Data();
-            dato.MegaSetter(temporal[0],temporal[1],temporal[2]);
+            dato.MegaSetter(temporal[0].toLowerCase(),temporal[1].toLowerCase(),temporal[2].toLowerCase());
             almacen_data.add(dato);
         }
         /***
-         * Impresion de lo que hay en el almacen de Data
+         * Se agrega segun el idioma seleccionado
          */
-        /***
-        System.out.println();
-        System.out.println(" lo que hay en almacen data");
-        System.out.println();
-        for (int i = 0; i<almacen_data.size();i++) {
-            System.out.println(almacen_data.get(i));
-        }*/
-
-
-        /***
-         * prueba de traduccion de palabra a letra
-         */
-/***
-        Tools herramienta =  new Tools();
-        int prueba_t=herramienta.StringToNum("homewo");
-        System.out.println(prueba_t);*/
 
         for (int i = 0;i<almacen_data.size();i++){
             Tools tuerca =  new Tools();
             int prueba =tuerca.StringToNum(almacen_data.get(i).MegaGetter(Alfa-1));
             Arbol.agregarNodo(prueba,almacen_data.get(i));
         }
+        /***
+         * se recorre el String que contiene la oracion a traducir y si no se encuentra se le agregan asteriscos
+         */
         for (int a =0;a<Cadena.size();a++){
             Tools tuerca =  new Tools();
             int prueba =tuerca.StringToNum(Cadena.get(a));
             try{
-                traduccion = traduccion +" "+Arbol.encontrar(prueba).traducciones.MegaGetter(Omega-1);
+                traduccion = traduccion +Arbol.encontrar(prueba).traducciones.MegaGetter(Omega-1)+" ";
             }catch(Exception e){
-                traduccion = traduccion +" "+"*"+Cadena.get(a)+"*";
+                traduccion = traduccion +"*"+Cadena.get(a)+"*"+" ";
             }
         }
-
-
-
 
         return traduccion;
     }

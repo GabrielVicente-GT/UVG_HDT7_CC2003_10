@@ -6,6 +6,12 @@ import com.sun.nio.sctp.Association;
 public class BinaryTree {
 
     Node root;
+
+    /***
+     *
+     * @param palabra llave del arbol
+     * @param traducciones data sobre las traducciones que le corresponden
+     */
     public void agregarNodo(int palabra, Data traducciones) {
 
         Node nuevoNodo = new Node(palabra, traducciones);

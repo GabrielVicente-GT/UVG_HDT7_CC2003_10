@@ -25,7 +25,6 @@ public class Main {
                 "---______________________");
         System.out.println("______________________-----------------------------------______________________");
         System.out.println();
-        System.out.println();
 
         /***
          * Se lee un archivo txt (diccionario)
@@ -53,7 +52,6 @@ public class Main {
          * Impresion de lo que hay en el archivo y se pasa la calculadora
          */
 
-        System.out.println();
         System.out.println("Oraciones en el txt");
         System.out.println();
         for(int a =0;a<varios.size();a++){
@@ -71,7 +69,7 @@ public class Main {
             numero++;
             System.out.println(" TRADUCCION "+numero+" : \n");
             System.out.println(varios.get(a)+"\n");
-
+            view.press_enter();
             /***
              * se elige el idioma de origen
              */
@@ -91,9 +89,13 @@ public class Main {
             System.out.println("\n Idioma origen seleccionado: "+origen);
             System.out.println(" Idioma destino seleccionado: "+destino+"\n");
 
-            try{
+            /***
+             * Por cada traduccion se llama a la operacion de calculo y con los idiomas de destino y origen seleccionado se hace la traduccion
+             */
 
-                System.out.println(" Esta es la traduccion --->"+esperanza.Calculo(varios.get(a),Alfa,Omega) +" ");
+            try{
+                System.out.println(" ESTA ES LA ORIGINAL   ---> "+varios.get(a) +" ");
+                System.out.println(" ESTA ES LA TRADUCCION ---> "+esperanza.Calculo(varios.get(a),Alfa,Omega) +" ");
                 System.out.println();
 
             }catch(Exception e){

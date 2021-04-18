@@ -1,7 +1,16 @@
+/***
+ * @author Gabriel Alejandro Vicente Lorenzo 20498
+ */
 public class Tools {
     Tools(){
 
     }
+
+    /***
+     *
+     * @param palabra palabra que se cambira por un numero
+     * @return el codigo de la palabra en numero
+     */
     public int StringToNum(String palabra){
         int numero=0;
         String[] caracteres = palabra.split("");
